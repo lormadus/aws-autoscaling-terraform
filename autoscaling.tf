@@ -11,7 +11,7 @@ resource "aws_autoscaling_group" "web" {
   ]
 
   launch_configuration = "${aws_launch_configuration.web.name}"
-  availability_zones = ["ap-southeast-1a", "ap-southeast-1b"]
+  ####  availability_zones = ["ap-southeast-1a", "ap-southeast-1b"]  아ㅐㄹ vpc_zone_identifier 와 중복
 
   enabled_metrics = [
     "GroupMinSize",
