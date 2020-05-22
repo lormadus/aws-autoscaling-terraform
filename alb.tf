@@ -22,7 +22,7 @@ resource "aws_alb_target_group" "frontend" {
     name = "frontend-target-group"
     port = 80
     protocol = "HTTP"
-    vpc_id = "${aws_vpc.user06.id}"
+    vpc_id = "${aws_vpc.user**.id}"
     health_check {
         interval = 30
         path = "/"
