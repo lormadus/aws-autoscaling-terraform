@@ -1,0 +1,24 @@
+resource "aws_launch_configuration" "web" {
+  name_prefix = "user06-autoscaling-web-"
+
+  image_id = "${var.amazon_linux}"
+  instance_type = "t2.nano"
+  key_name = "${var.user06_keyname}"
+  security_groups = [
+    "${aws_security_group.bastion.id}",
+    "${aws_default_security_group.user06_default.id}",
+  ]
+  associate_public_ip_address = true
+    
+  user_data = <<USER_DATA
+#!/bin/bash
+yum update
+yum -y install httpd
+echo "<html>Hello<img src=http://d2827cs1l6uk7w.cloudfront.net/images/image.jpg/></html>" > /usr/share/nginx/html/index.html
+service httpd start
+  USER_DATA
+
+  lifecycle {
+    create_before_destroy = true
+  }
+}
