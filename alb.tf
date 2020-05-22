@@ -25,7 +25,7 @@ resource "aws_alb_target_group" "frontend" {
     vpc_id = "${aws_vpc.user06.id}"
     health_check {
         interval = 30
-        path = "/ping"
+        path = "/"
         healthy_threshold = 3
         unhealthy_threshold = 3
     }
