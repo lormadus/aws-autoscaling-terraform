@@ -11,10 +11,13 @@ resource "aws_launch_configuration" "web" {
   user_data = <<USER_DATA
 #!/bin/bash
 yum update
-yum -y install nginx
-echo "$(curl http://169.254.169.254/latest/meta-data/local-ipv4)" > /usr/share/nginx/html/index.html
-chkconfig nginx on
-service nginx start
+yum -y install httpd
+echo "<html>" > /var/www/html/index.html
+echo "Hello" > /var/www/html/index.html
+echo "<img src="CloudFront URL"> >> /var/www/html/index.html
+echo "</html>" > /var/www/html/index.html
+systemctl start httpd.service
+systemctl enable httpd.service
   USER_DATA
 
   lifecycle {
