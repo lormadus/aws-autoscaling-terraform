@@ -13,9 +13,9 @@ resource "aws_launch_configuration" "web" {
 yum update
 yum -y install httpd
 echo "<html>" > /var/www/html/index.html
-echo "Hello" > /var/www/html/index.html
-echo "<img src="CloudFront URL"> >> /var/www/html/index.html
-echo "</html>" > /var/www/html/index.html
+echo "Hello" >> /var/www/html/index.html
+echo "<img src=\"CloudFront URL\"> >> /var/www/html/index.html"
+echo "</html>" >> /var/www/html/index.html
 systemctl start httpd.service
 systemctl enable httpd.service
   USER_DATA
