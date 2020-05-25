@@ -12,7 +12,7 @@ resource "aws_cloudwatch_metric_alarm" "web_cpu_alarm_up" {
   evaluation_periods = "2"
   metric_name = "CPUUtilization"
   namespace = "AWS/EC2"
-  period = "10"
+  period = "120"
   statistic = "Average"
   threshold = "20"
 
