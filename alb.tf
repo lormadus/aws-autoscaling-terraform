@@ -31,16 +31,16 @@ resource "aws_alb_target_group" "frontend" {
     }
     tags = { Name = "user06-Frontend Target Group" }
 }
-resource "aws_alb_target_group_attachment" "frontend" {
-    target_group_arn = "${aws_alb_target_group.frontend.arn}"
-    target_id = "${aws_instance.bastion_1a.id}"
-    port = 80
-}
-resource "aws_alb_target_group_attachment" "frontend_1c" {
-    target_group_arn = "${aws_alb_target_group.frontend.arn}"
-    target_id = "${aws_instance.bastion_1c.id}"
-    port = 80
-}
+##resource "aws_alb_target_group_attachment" "frontend" {
+##    target_group_arn = "${aws_alb_target_group.frontend.arn}"
+##    target_id = "${aws_instance.bastion_1a.id}"
+##    port = 80
+##}
+##resource "aws_alb_target_group_attachment" "frontend_1c" {
+##    target_group_arn = "${aws_alb_target_group.frontend.arn}"
+##    target_id = "${aws_instance.bastion_1c.id}"
+##    port = 80
+##}
 
 resource "aws_alb_listener" "http" {
     load_balancer_arn = "${aws_alb.alb.arn}"
