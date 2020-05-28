@@ -40,3 +40,9 @@ resource "aws_autoscaling_group" "web" {
   }
 }
 
+resource "aws_autoscaling_attachment" "user****-asg-attachment" {
+  autoscaling_group_name = aws_autoscaling_group.******.id
+  alb_target_group_arn   = aws_alb_target_group.********.arn
+}
+
+
