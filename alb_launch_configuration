@@ -14,8 +14,12 @@ resource "aws_launch_configuration" "web" {
 #!/bin/bash
 yum update
 yum -y install httpd
-echo "<html>Hello<img src=http://d2827cs1l6uk7w.cloudfront.net/images/image.jpg/></html>" > /usr/share/nginx/html/index.html
-service httpd start
+echo "<html>" > /var/www/html/index.html
+echo "Hello" >> /var/www/html/index.html
+echo "<img src=\"CloudFront URL\"> >> /var/www/html/index.html"
+echo "</html>" >> /var/www/html/index.html
+systemctl start httpd.service
+systemctl enable httpd.service
   USER_DATA
 
   lifecycle {
