@@ -1,0 +1,33 @@
+export PATH=$PATH:~/environment
+mkdir vpc1
+mkdir vpc2
+
+terraform apply --auto-approve
+
+echo "export AWS_ACCESS_KEY_ID=f9r93jdkfdjf**" >> ~/.bash_profile
+echo "export AWS_SECRET_KEY=3748hdoo34kfld" >> ~/.bash_profile
+. ~/.bash_profile
+
+ALB Account ID https://amzn.to/36YAEKV
+
+$ssh-keygen       ## 명령어 실행하고  ENTER key 3번 누르면 생성
+$cd  ~/.ssh
+$ls 
+id_rsa    id_rsa.pub
+
+$cat id_rsa.pub     ### 이 파일 내용을  key.tf 파일에 복사
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
