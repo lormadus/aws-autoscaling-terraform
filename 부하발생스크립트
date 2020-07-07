@@ -8,7 +8,7 @@ else
 fi
 
 for i in `seq 0 $((NUM_PROC-1))`; do
-        awk 'BEGIN {for(i=0;i<10000;i++)for(j=0;j<10000;j++);}' &
+        awk 'BEGIN {for(i=0;i<10000000000;i++)for(j=0;j<1000000000;j++);}' &
 done
 
 echo "PIDS: `pidof awk`"
