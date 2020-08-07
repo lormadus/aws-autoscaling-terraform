@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "alb" {
-  bucket = "ktdemo-alb-log.com"
+  bucket = "sk-demo-alb-log.com"
   policy = <<EOF
 {
   "Version": "2012-10-17",
@@ -10,7 +10,7 @@ resource "aws_s3_bucket" "alb" {
         "AWS": "arn:aws:iam::${var.alb_account_id}:root"
       },
       "Action": "s3:PutObject",
-      "Resource": "arn:aws:s3:::ktdemo-alb-log.com/*"
+      "Resource": "arn:aws:s3:::sk-demo-alb-log.com/*"
     }
   ]
 }
