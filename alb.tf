@@ -31,6 +31,8 @@ resource "aws_alb_target_group" "frontend" {
     }
     tags = { Name = "user06-Frontend Target Group" }
 }
+
+## 개별 인스턴스에 연결하는 경우 아래 부분 추가
 ##resource "aws_alb_target_group_attachment" "frontend" {
 ##    target_group_arn = "${aws_alb_target_group.frontend.arn}"
 ##    target_id = "${aws_instance.bastion_1a.id}"
