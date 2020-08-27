@@ -31,6 +31,7 @@ echo "</html>" >> /var/www/html/index.html
 
 ## HTTPD 데몬 실행시 Amazon Linux 1세대인 경우
 service httpd start
+chkconfig --level 2345 httpd on  ## 시스템 시작할 때 데몬 구동
 
 ## HTTPD 데몬 실행시 Amazon Linux 2세대인 경우 (아래 주석 제거)
 #systemctl start httpd.service
