@@ -28,8 +28,15 @@ echo "Hello" >> /var/www/html/index.html
 echo "<p> SERVER IP: $(curl http://169.254.169.254/latest/meta-data/local-ipv4) </p>" >> /var/www/html/index.html
 echo "<img src=\"CloudFront URL\">" >> /var/www/html/index.html
 echo "</html>" >> /var/www/html/index.html
-systemctl start httpd.service
-systemctl enable httpd.service
+
+## HTTPD 데몬 실행시 Amazon Linux 1세대인 경우
+service httpd start
+
+## HTTPD 데몬 실행시 Amazon Linux 2세대인 경우 (아래 주석 제거)
+#systemctl start httpd.service
+#systemctl enable httpd.service
+
+
 ####
   USER_DATA
 
