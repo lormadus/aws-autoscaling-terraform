@@ -29,6 +29,11 @@ echo "<p> SERVER IP: $(curl http://169.254.169.254/latest/meta-data/local-ipv4) 
 echo "<img src=\"CloudFront URL\">" >> /var/www/html/index.html
 echo "</html>" >> /var/www/html/index.html
 
+## CodeDeploy용 인스턴스 생성하는 경우 (**** 한 부분은 Region Code로 대체, 예/ us-east-1 )
+#wget https://aws-codedeploy-******.s3.amazonaws.com/latest/codedeploy-agent.noarch.rpm
+#yum -y install codedeploy-agent.noarch.rpm
+
+
 ## HTTPD 데몬 실행시 Amazon Linux 1세대인 경우
 service httpd start
 chkconfig --level 2345 httpd on  ## 시스템 시작할 때 데몬 구동
