@@ -4,7 +4,7 @@ resource "aws_key_pair" "sshkey" {
 }
 
 ### SSH 접속을 위한 RSA-KEY 생성
-## 리눅스 서버에서 
+## 리눅스 서버 혹은 Cloud9에서
 ## ssh-keygen 실행
 ## <Enter> 키를 세번 누릅니다
 ## 홈디렉토리의 .ssh 디렉토리로 가시면 id_rsa(프라이빗 키), id_rsa.pub(퍼브릭키 - AWS 에 등록할 키) 가 생성됩니다.
