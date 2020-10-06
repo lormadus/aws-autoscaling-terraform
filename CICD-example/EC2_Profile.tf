@@ -63,9 +63,9 @@ resource "aws_iam_policy" "WebAppRolePolicies" {
                 "s3:List*"
               ],
               "Resource": [
-                "arn:aws:s3:::user19-cicd-workshop",
-                "arn:aws:s3:::user19-cicd-workshop/*",
-                "arn:aws:s3:::user19-CodePipeline*"
+                "arn:aws:s3:::cicd-workshop-ca-central-1-052937454741", 
+                "arn:aws:s3:::cicd-workshop-ca-central-1-052937454741/*",
+                "arn:aws:s3:::cicd-workshop-ca-central-1-052937454741e*"
               ]
             }
   ]
