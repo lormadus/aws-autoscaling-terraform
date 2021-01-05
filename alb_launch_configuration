@@ -1,12 +1,12 @@
 resource "aws_launch_configuration" "web" {
   name_prefix = "user06-autoscaling-web-"
 
-  image_id = "${var.amazon_linux}"
+  image_id = var.amazon_linux
   instance_type = "t2.nano"
-  key_name = "${var.user06_keyname}"
+  key_name = var.user06_keyname
   security_groups = [
-    "${aws_security_group.bastion.id}",
-    "${aws_default_security_group.user06_default.id}",
+    aws_security_group.bastion.id,
+    aws_default_security_group.user06_default.id,
   ]
   associate_public_ip_address = true
     
