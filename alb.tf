@@ -1,13 +1,13 @@
 resource "aws_alb" "alb" {
     name = "user06-alb"
     internal = false
-    security_groups = ["${aws_security_group.alb.id}"]
+    security_groups = [aws_security_group.alb.id]
     subnets = [
         "${aws_subnet.public_1a.id}",
         "${aws_subnet.public_1c.id}"
     ]
     access_logs {
-        bucket = "${aws_s3_bucket.alb.id}"
+        bucket = aws_s3_bucket.alb.id
         prefix = "frontend-alb"
         enabled = true
     }
@@ -22,7 +22,7 @@ resource "aws_alb_target_group" "frontend" {
     name = "frontend-target-group"
     port = 80
     protocol = "HTTP"
-    vpc_id = "${aws_vpc.user**.id}"
+    vpc_id = aws_vpc.user**.id
     health_check {
         interval = 30
         path = "/"
@@ -47,11 +47,11 @@ resource "aws_alb_target_group" "frontend" {
 ##}
 
 resource "aws_alb_listener" "http" {
-    load_balancer_arn = "${aws_alb.alb.arn}"
+    load_balancer_arn = aws_alb.alb.arn
     port = "80"
     protocol = "HTTP"
     default_action {
-        target_group_arn = "${aws_alb_target_group.frontend.arn}"
+        target_group_arn = aws_alb_target_group.frontend.arn
         type = "forward"
     }
 }

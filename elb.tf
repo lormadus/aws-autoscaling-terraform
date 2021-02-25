@@ -1,7 +1,7 @@
 resource "aws_security_group" "elb_http" {
   name        = "elb_http"
   description = "Allow HTTP traffic to instances through Elastic Load Balancer"
-  vpc_id = "${aws_vpc.dev.id}"
+  vpc_id = aws_vpc.dev.id
 
   ingress {
     from_port   = 80
@@ -25,11 +25,11 @@ resource "aws_security_group" "elb_http" {
 resource "aws_elb" "web_elb" {
   name = "web-elb"
   security_groups = [
-    "${aws_security_group.elb_http.id}"
+    aws_security_group.elb_http.id
   ]
   subnets = [
-    "${aws_subnet.public_1a.id}",
-    "${aws_subnet.public_1c.id}"
+    aws_subnet.public_1a.id,
+    aws_subnet.public_1c.id
   ]
   cross_zone_load_balancing   = true
   health_check {
